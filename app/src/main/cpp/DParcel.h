@@ -1,21 +1,17 @@
-//
-// Created by 杨敬华 on 2022/12/15.
-//
+#ifndef DERRYPARCEL_JAVA_DPARCEL_H
+#define DERRYPARCEL_JAVA_DPARCEL_H
 
-#ifndef MYPRARCEL_DPARCEL_H
-#define MYPRARCEL_DPARCEL_H
-
-
-#include "jni.h"
-#include "malloc.h"
+#include <jni.h>
+#include <malloc.h>
 
 class DParcel {
+
 private:
-    char *mData = 0; //DParcel 对象共享内存地址
-    int mDataPos = 0; //Dparcel 对象共享内存的首地址的指针的位置
+    char * mData = 0; // DParcel对象共享内存的首地址（内存地址）
+    int mDataPos = 0; // DParcel对象共享内存的首地址（内存地址） 的指针挪动位置
+    void changePos(int pos); // 指针位置 +=
+    jint len = 0;
 
-
-    int len = 0;
 public:
     DParcel();
 
@@ -23,12 +19,10 @@ public:
 
     void writeInt(int val);
 
-    void setDataPosition(int mDataPos);
+    void setDataPosition(int mDataPos); // 用于改变指针地址挪动的位置
 
     jint readInt();
-
-    void changePos(int val);
-
 };
 
-#endif //MYPRARCEL_DPARCEL_H
+
+#endif //DERRYPARCEL_JAVA_DPARCEL_H

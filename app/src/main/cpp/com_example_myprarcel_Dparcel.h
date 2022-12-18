@@ -22,7 +22,7 @@ JNIEXPORT jlong JNICALL Java_com_example_myprarcel_Dparcel_nativeCreate
  * Signature: ()V
  */
 JNIEXPORT void JNICALL Java_com_example_myprarcel_Dparcel_nativeWriteInt
-  (JNIEnv *, jobject);
+  (JNIEnv *, jobject, jlong m_native_ptr, jint val);
 
 /*
  * Class:     com_example_myprarcel_Dparcel
